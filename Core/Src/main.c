@@ -21,12 +21,12 @@
 #include "i2s.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include <stdio.h>
-#include <usbd_cdc_if.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include <usbd_cdc_if.h>
+#include "benchmark.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,8 +93,8 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
-  while (!hUsbDeviceFS.dev_state!=USBD_STATE_CONFIGURED)
-	  HAL_delay(1000);
+  while (hUsbDeviceFS.dev_state!=USBD_STATE_CONFIGURED)
+	  HAL_Delay(1000);
 
   /* USER CODE END 2 */
 
@@ -105,6 +105,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  puts("Testing restarts in 10 seconds.\r");
+	  HAL_Delay(10000);
   }
   /* USER CODE END 3 */
 }
