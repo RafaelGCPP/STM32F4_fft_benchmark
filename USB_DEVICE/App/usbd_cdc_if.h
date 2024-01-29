@@ -109,6 +109,7 @@ extern uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
 
 /* USER CODE BEGIN EXPORTED_FUNCTIONS */
+int8_t CDC_IsHostComPortOpen() ;
 
 /* USER CODE END EXPORTED_FUNCTIONS */
 

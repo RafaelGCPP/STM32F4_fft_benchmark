@@ -93,7 +93,7 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
-  while (hUsbDeviceFS.dev_state!=USBD_STATE_CONFIGURED)
+  while (!CDC_IsHostComPortOpen())
 	  HAL_Delay(1000);
 
   /* USER CODE END 2 */
@@ -105,7 +105,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  puts("Testing restarts in 10 seconds.\r");
+	  time_benchmark();
+	  fft_benchmark();
+	  fft_benchmark_fixed_point();
+	  printf("Testing restarts in 10 seconds.\r\n");
 	  HAL_Delay(10000);
   }
   /* USER CODE END 3 */

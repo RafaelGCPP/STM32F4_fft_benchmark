@@ -27,8 +27,9 @@ int _read(int file, char *ptr, int len)
 
 int _write(int file, char *ptr, int len)
 {
-	CDC_Transmit_FS((uint8_t *)ptr, len);
-
+  while((CDC_Transmit_FS((uint8_t*)ptr, len) == USBD_BUSY));
   return len;
 }
+
+
 

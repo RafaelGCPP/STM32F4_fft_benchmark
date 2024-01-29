@@ -9,6 +9,8 @@
 #define SRC_BENCHMARK_H_
 
 void fft_benchmark();
+void fft_benchmark_fixed_point();
+void time_benchmark();
 
 
 #endif /* SRC_BENCHMARK_H_ */
